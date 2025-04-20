@@ -64,3 +64,75 @@ menentukan lokasi file notes.txt
 membaca isi file tersebut
 menampilkan isi file ke  console
 menangani error kalau file-nya gagal dibaca
+
+Readable stream untuk memecah file menjadi beberapa bagian agar menghemat memori/resource dan cocok untuk file besar
+
+
+
+
+
+
+
+
+
+Rangkuman 
+apa itu node.js 
+node js adalah javscript runtime yang memungkinkan kita menjalankan javascipt di luar browser (misalnya untuk server/back-end). diciptakan oleh ryan dahl pada 2009.
+
+menjalankan javascript di node js 
+1.REPL - jalankan lansung di terminal
+2. file.js - tulis kode di file dan jalankan dengan node namafile.js
+
+Apa itu Global Object?
+
+Bayangkan kamu lagi nulis kode di mana-mana, terus ada variabel atau fungsi yang bisa langsung kamu pakai tanpa perlu di-import dulu. Nah, itulah yang disebut global object — semacam benda ajaib yang bisa diakses dari mana aja di dalam program Node.js kamu.
+✅ Contoh Global Object yang Sering Dipakai di Node.js:
+Nama	Fungsi
+global	Tempat utama untuk semua variabel global. Mirip seperti window di browser.
+process	Info tentang program yang lagi jalan. Contohnya: sistem operasi, folder kerja, dll.
+console	Untuk mencetak ke layar/terminal. Misalnya: console.log().
+setTimeout, setInterval	Untuk membuat delay atau menjalankan kode berkala. Mirip di JavaScript biasa.
+🧩 Ada juga yang namanya "pseudo-globals" (bukan benar-benar global tapi bisa dipakai langsung):
+Nama	Fungsi
+__filename	Menunjukkan nama file JavaScript yang sedang dijalankan.
+__dirname	Menunjukkan folder tempat file itu berada.
+require()	Untuk mengambil/meng-import module dari file lain.
+module	Info tentang module/file yang sedang kamu tulis.
+
+    Catatan: Pseudo-globals ini tidak tersedia kalau kamu langsung ketik di terminal REPL, tapi tersedia di file .js.
+
+🔑 Intinya:
+
+Global object itu seperti alat-alat bawaan Node.js yang langsung bisa kamu pakai, tanpa perlu pasang atau panggil apa-apa dulu. Mereka bikin hidup kita lebih gampang saat bikin program!
+
+modularization
+pisahkan kdoe ke dalam beberapa file / modulle agar lebih rapi.
+gunakan module.exports untuk ekspor dan require() untuk impor.
+
+filesystem (fs)
+Mengakses dan memanipulasi file di komputer
+gunaka ds.readfile() (async) atau fs.readFileSync() (sync).
+akses efisien file besar > gunakan stream
+
+Stream di node.js 
+1. readable stream
+membaca file bagian demi bagian (hemat memori).
+gunakan: fs.createReadStream(path, { highWaterMark }).
+2. writeable stream 
+menulis file bagian demi bagian
+gunakan fs.createWriteStream(path) lalu .write() dan .end().
+
+process object 
+berisi info tentang environment aplikasi(environtment adalah kumoulan kondisi atau konfigurasi).
+process.env menyimpan environtment variable seperti NODE_ENV.
+
+NPM(node package manager)
+untuk mengelola library/third party module 
+gunakan npm install namamodul (lokal) atau npx untuk eksekusi global tanpa install
+
+Event (EventEmitter)
+Pola event-driven,contoh: saat ada panggilan masuk, kita angkat
+node.js punya EventEmitter untuk menangani event secara efisien
+
+KESIMPULAN
+node.js memungkinkan javascript berjalan di server. dengan konsep modular, stream, event dan manajemen paket (npm), kita bisa membangun aplikasi back end yang efisien dan skalabel.
